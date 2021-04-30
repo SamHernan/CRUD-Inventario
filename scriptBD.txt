@@ -1,0 +1,5 @@
+//Inventario
+1.  create database cafeteria_inventario;
+2.  create user 'inventario'@'%' identified by '123456';
+3.  grant all on cafeteria_inventario.* to 'inventario'@'%';
+4.  flush privileges;

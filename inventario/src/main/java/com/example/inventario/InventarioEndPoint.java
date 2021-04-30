@@ -6,6 +6,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+
 import uv.cafeteria.inventario.CreateArtRequest;
 import uv.cafeteria.inventario.CreateArtResponse;
 import uv.cafeteria.inventario.DeleteArtRequest;
@@ -22,7 +23,7 @@ public class InventarioEndPoint {
     @ResponsePayload
     public CreateArtResponse altaProducto( @RequestPayload CreateArtRequest peticion){
         CreateArtResponse respuesta=new CreateArtResponse();
-        respuesta.setRespuesta("Producto registrado");
+        respuesta.setRespuesta("Producto registrado exitosamente");
         //salvar la BD
         Productos producto= new Productos();
         producto.setNombre(peticion.getNombre());
@@ -66,7 +67,7 @@ public class InventarioEndPoint {
         p.setUnidad(unidad);
         p.setPrecio(precio);
         inInventario.save(p);
-        respuesta.setRespuesta("Producto Actualizado");
+        respuesta.setRespuesta("Producto Actualizado exitosamente");
         return respuesta;
     }
 
@@ -78,7 +79,7 @@ public class InventarioEndPoint {
         
         Productos p = inInventario.findById(id).orElse(null);
         inInventario.delete(p);
-        respuesta.setRespuesta("El producto con el id:  " + id + " ha sido eliminado de la BD");
+        respuesta.setRespuesta("Producto eliminado exitosamente");
  
         return respuesta;
     }
